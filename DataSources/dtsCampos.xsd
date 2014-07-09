@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dtsCampos" targetNamespace="http://tempuri.org/dtsCampos.xsd" xmlns:mstns="http://tempuri.org/dtsCampos.xsd" xmlns="http://tempuri.org/dtsCampos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dtsCampos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dtsCampos" msprop:Generator_UserDSName="dtsCampos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Campos" msprop:Generator_UserTableName="Campos" msprop:Generator_RowEvArgName="CamposRowChangeEvent" msprop:Generator_TableVarName="tableCampos" msprop:Generator_TablePropName="Campos" msprop:Generator_RowDeletingName="CamposRowDeleting" msprop:Generator_RowChangingName="CamposRowChanging" msprop:Generator_RowDeletedName="CamposRowDeleted" msprop:Generator_TableClassName="CamposDataTable" msprop:Generator_RowChangedName="CamposRowChanged" msprop:Generator_RowEvHandlerName="CamposRowChangeEventHandler" msprop:Generator_RowClassName="CamposRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="Tipo" msprop:Generator_ColumnVarNameInTable="columnTipo" msprop:Generator_ColumnPropNameInRow="Tipo" msprop:Generator_ColumnPropNameInTable="TipoColumn" msprop:Generator_UserColumnName="Tipo" type="xs:string" default="&quot;&quot;" minOccurs="0" />
+              <xs:element name="EsLlave" msprop:Generator_ColumnVarNameInTable="columnEsLlave" msprop:Generator_ColumnPropNameInRow="EsLlave" msprop:Generator_ColumnPropNameInTable="EsLlaveColumn" msprop:Generator_UserColumnName="EsLlave" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="Obligatorio" msprop:Generator_ColumnVarNameInTable="columnObligatorio" msprop:Generator_ColumnPropNameInRow="Obligatorio" msprop:Generator_ColumnPropNameInTable="ObligatorioColumn" msprop:Generator_UserColumnName="Obligatorio" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="EsUnico" msprop:Generator_ColumnVarNameInTable="columnEsUnico" msprop:Generator_ColumnPropNameInRow="EsUnico" msprop:Generator_ColumnPropNameInTable="EsUnicoColumn" msprop:Generator_UserColumnName="EsUnico" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="CaracteresMaximos" msprop:Generator_ColumnVarNameInTable="columnCaracteresMaximos" msprop:Generator_ColumnPropNameInRow="CaracteresMaximos" msprop:Generator_ColumnPropNameInTable="CaracteresMaximosColumn" msprop:Generator_UserColumnName="CaracteresMaximos" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="CaracteresMinimos" msprop:Generator_ColumnVarNameInTable="columnCaracteresMinimos" msprop:Generator_ColumnPropNameInRow="CaracteresMinimos" msprop:Generator_ColumnPropNameInTable="CaracteresMinimosColumn" msprop:Generator_UserColumnName="CaracteresMinimos" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="TipoFecha" msprop:Generator_ColumnVarNameInTable="columnTipoFecha" msprop:Generator_ColumnPropNameInRow="TipoFecha" msprop:Generator_ColumnPropNameInTable="TipoFechaColumn" msprop:Generator_UserColumnName="TipoFecha" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="TablaForanea" msprop:Generator_ColumnVarNameInTable="columnTablaForanea" msprop:Generator_ColumnPropNameInRow="TablaForanea" msprop:Generator_ColumnPropNameInTable="TablaForaneaColumn" msprop:Generator_UserColumnName="TablaForanea" type="xs:string" minOccurs="0" />
+              <xs:element name="CampoIDForaneo" msprop:Generator_ColumnVarNameInTable="columnCampoIDForaneo" msprop:Generator_ColumnPropNameInRow="CampoIDForaneo" msprop:Generator_ColumnPropNameInTable="CampoIDForaneoColumn" msprop:Generator_UserColumnName="CampoIDForaneo" type="xs:string" minOccurs="0" />
+              <xs:element name="CampoForaneo" msprop:Generator_ColumnVarNameInTable="columnCampoForaneo" msprop:Generator_ColumnPropNameInRow="CampoForaneo" msprop:Generator_ColumnPropNameInTable="CampoForaneoColumn" msprop:Generator_UserColumnName="CampoForaneo" type="xs:string" minOccurs="0" />
+              <xs:element name="MostrarEnGrilla" msprop:Generator_ColumnVarNameInTable="columnMostrarEnGrilla" msprop:Generator_ColumnPropNameInRow="MostrarEnGrilla" msprop:Generator_ColumnPropNameInTable="MostrarEnGrillaColumn" msprop:Generator_UserColumnName="MostrarEnGrilla" type="xs:boolean" default="true" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
