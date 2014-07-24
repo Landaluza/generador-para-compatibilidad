@@ -184,7 +184,7 @@
     Private Sub dgvCampos_CellValueChanged(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvCampos.CellValueChanged
         Try
             If e.ColumnIndex = 1 Then
-                If dgvCampos.Item(1, e.RowIndex).Value = "String" Then
+                If dgvCampos.Item(1, e.RowIndex).Value.ToString = "String" Then
                     If dgvCampos.Item(0, e.RowIndex).Value.ToString.ToLower.Trim = "descripcion" Then
                         dgvCampos.Item(5, e.RowIndex).Value = 50
                     End If
@@ -197,7 +197,7 @@
                     End Try
                 End If
 
-                If dgvCampos.Item(1, e.RowIndex).Value = "DateTime" Then
+                If dgvCampos.Item(1, e.RowIndex).Value.ToString = "DateTime" Then
                     If dgvCampos.Item(0, e.RowIndex).Value.ToString.ToLower.Trim.Substring(0, 5) = "fecha" Then
                         dgvCampos.Item(7, e.RowIndex).Value = True
                     ElseIf dgvCampos.Item(0, e.RowIndex).Value.ToString.ToLower.Trim.Substring(0, 4) = "hora" Then
@@ -207,7 +207,7 @@
                     End If
                 End If
             ElseIf e.ColumnIndex = 2 Then
-                If dgvCampos.Item(2, e.RowIndex).Value = True Then
+                If Convert.ToBoolean(dgvCampos.Item(2, e.RowIndex).Value) = True Then
                     dgvCampos.Item(3, e.RowIndex).Value = True
                     dgvCampos.Item(4, e.RowIndex).Value = True
                     dgvCampos.Item(11, e.RowIndex).Value = False
@@ -492,7 +492,7 @@
     Private Sub GUI_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         Try
             Me.Options.Ruta = txtRuta.Text
-            Me.Options.Tabla = Me.cboTabla.SelectedValue
+            Me.Options.Tabla = Me.cboTabla.SelectedValue.ToString
             Me.Options.Ejecutar = Me.chbRunProcedures.Checked
             Me.Options.Combo = Me.chbCrearCampos.Checked
             Options.Versionar = Me.chbVersion.Checked

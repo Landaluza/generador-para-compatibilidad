@@ -27,7 +27,7 @@ Public Module modOne
         cwLen = Len(Trim(cnvStr))
         cwTot = 0
         For cwX = 1 To cwLen
-            cwStr = Mid(cnvStr, cwX, 1)
+            cwStr = Convert.ToChar(Mid(cnvStr, cwX, 1))
             If cwStr = "I" Or cwStr = "f" Or cwStr = "i" Or cwStr = "j" Or cwStr = "l" Or cwStr = "t" Or cwStr = " " Or cwStr = "A" Then
                 cwTot = cwTot + 7
             ElseIf cwStr = "r" Or cwStr = "-" Then
@@ -63,30 +63,30 @@ Public Module modOne
         If cwLen = 1 Or cwLen = 2 Or cwLen = 3 Or cwLen = 4 Then
             retVal = cwTot
         ElseIf cwLen = 5 Or cwLen = 6 Then
-            retVal = cwTot / 1.41
+            retVal = Convert.ToInt32(cwTot / 1.41)
         ElseIf cwLen = 7 Or cwLen = 8 Then
-            retVal = cwTot / 1.44
+            retVal = Convert.ToInt32(cwTot / 1.44)
         ElseIf cwLen = 9 Or cwLen = 10 Then
-            retVal = cwTot / 1.49
+            retVal = Convert.ToInt32(cwTot / 1.49)
         ElseIf cwLen = 11 Or cwLen = 12 Then
-            retVal = cwTot / 1.51
+            retVal = Convert.ToInt32(cwTot / 1.51)
         ElseIf cwLen = 13 Or cwLen = 14 Or cwLen = 15 Then
-            retVal = cwTot / 1.52
+            retVal = Convert.ToInt32(cwTot / 1.52)
         ElseIf cwLen = 16 Or cwLen = 17 Then
-            retVal = cwTot / 1.53
+            retVal = Convert.ToInt32(cwTot / 1.53)
         ElseIf cwLen = 18 Or cwLen = 19 Or cwLen = 20 Or cwLen = 21 Then
-            retVal = cwTot / 1.54
+            retVal = Convert.ToInt32(cwTot / 1.54)
         ElseIf cwLen = 22 Or cwLen = 23 Or cwLen = 24 Or cwLen = 25 _
             Or cwLen = 26 Or cwLen = 27 Or cwLen = 28 Or cwLen = 29 _
             Or cwLen = 30 Or cwLen = 31 Or cwLen = 32 Or cwLen = 33 Then
-            retVal = cwTot / 1.55
+            retVal = Convert.ToInt32(cwTot / 1.55)
         ElseIf cwLen = 34 Or cwLen = 35 Or cwLen = 36 Or cwLen = 37 _
             Or cwLen = 38 Or cwLen = 39 Or cwLen = 40 Or cwLen = 41 _
             Or cwLen = 42 Or cwLen = 43 Or cwLen = 44 Or cwLen = 45 _
             Or cwLen = 46 Or cwLen = 47 Or cwLen = 48 Or cwLen = 49 Then
-            retVal = cwTot / 1.56
+            retVal = Convert.ToInt32(cwTot / 1.56)
         ElseIf cwLen >= 50 Then
-            retVal = cwTot / 1.57
+            retVal = Convert.ToInt32(cwTot / 1.57)
         End If
         ' ...
         Return retVal
@@ -268,7 +268,7 @@ Public Module modOne
         myReader = myCommand.ExecuteReader()
         Dim count As Short = 0
         While myReader.Read()
-            If Field = myReader.Item("COLUMN_NAME") Then
+            If Field = myReader.Item("COLUMN_NAME").ToString Then
                 Return True
             End If
         End While

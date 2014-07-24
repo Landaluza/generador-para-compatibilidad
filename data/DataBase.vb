@@ -94,8 +94,8 @@ Public Class DataBase
             While myReader.Read()                
                 Dim row As DataGridViewRow
                 For Each row In dgvCampos.Rows
-                    valor = If(IsDBNull(myReader.Item("TABLE_NAME")), "", myReader.Item("TABLE_NAME"))
-                    If row.Cells("TablaForanea").Value = valor Then
+                    valor = If(IsDBNull(myReader.Item("TABLE_NAME")), "", myReader.Item("TABLE_NAME").ToString)
+                    If row.Cells("TablaForanea").Value.ToString = valor Then
                         'dgvCampos.Item(9, i).Value = myReader.Item("COLUMN_NAME") '                            
                         row.Cells(9).Value = valor
                         row.Cells(10).Value = valor
@@ -108,7 +108,7 @@ Public Class DataBase
         Catch ex As Exception
             Return dgvCampos
         Finally
-            If Not myConnection Is Nothing Then If myConnection.State Then myConnection.Close()
+            If Not myConnection Is Nothing Then If myConnection.State <> ConnectionState.Closed Then myConnection.Close()
         End Try
     End Function
 
@@ -209,7 +209,7 @@ Public Class DataBase
             da.Fill(ds, "tabla")
 
             ' Defino variables
-            Dim indice As Short
+            Dim indice As Integer
             arrEstructura2 = New Generic.List(Of RegCampo)
 
             ' Redimensiono el array con tantas posisiones como campos haya en la tabla
@@ -350,7 +350,7 @@ Public Class DataBase
         myReader = myCommand.ExecuteReader()
         Dim count As Short = 0
         If myReader.Read() Then
-            field = myReader.Item("COLUMN_NAME")
+            field = myReader.Item("COLUMN_NAME").ToString
 
         End If
         myReader.Close()
@@ -377,26 +377,26 @@ Public Class DataBase
             myConnection = New SqlConnection(conexion)
             myCommand = New SqlCommand(mySelectQuery, myConnection)
             myConnection.Open()
-            Dim count As Short = myCommand.ExecuteScalar()
+            Dim count As Integer = Convert.ToInt32(myCommand.ExecuteScalar())
 
             mySelectQuery = "SELECT sys.columns.name AS FieldName, sys.types.name AS FieldType, sys.columns.max_length AS Length, sys.columns.precision, sys.columns.scale, sys.columns.is_nullable AS IsNul, 'No' AS fldStatus, sys.columns.is_identity, 'No' AS fkey, '' AS PKTable, '' AS PKColumn, sys.columns.name AS FieldNameB, sys.columns.name AS FieldNameU, '' AS FKDisplayColumn, 0 AS limitSort, 0 AS displaySort, 'No' AS FKAdditionalDisplayColumn, '' as syspropertiesValue, '' AS FK_Name, 0 as FK_Flag, create_date FROM sys.objects INNER JOIN sys.schemas ON sys.objects.schema_id = sys.schemas.schema_id INNER JOIN sys.columns ON sys.objects.object_id = sys.columns.object_id INNER JOIN sys.types ON sys.columns.system_type_id = sys.types.system_type_id WHERE (sys.objects.name = '" & strTable & "') AND (sys.schemas.name = '" & strOwner & "') AND (sys.objects.type = 'U' OR sys.objects.type = 'V') AND (sys.types.name <> 'sysname') AND (sys.types.user_type_id <= 256) AND (sys.types.name <> 'timestamp') AND (sys.types.name <> 'binary') AND (sys.types.name <> 'varbinary') AND (sys.types.name <> 'uniqueidentifier') AND (sys.types.name <> 'image') AND (sys.columns.is_computed = 0) ORDER BY sys.columns.column_id"
             myCommand = New SqlCommand(mySelectQuery, myConnection)
             myReader = myCommand.ExecuteReader()
-            Dim indice As Short = 0
-            Dim KeyCount As Short = 0
+            Dim indice As Integer = 0
+            Dim KeyCount As Integer = 0
 
             While myReader.Read()
-                If myReader.Item("FieldName") <> "FechaModificacion" And myReader.Item("FieldName") <> "UsuarioModificacion" Then
+                If myReader.Item("FieldName").ToString <> "FechaModificacion" And myReader.Item("FieldName").ToString <> "UsuarioModificacion" Then
                     Dim reg As New RegCampo
-                    reg.nombre = myReader.Item("FieldName")
-                    reg.tipo = If(myReader.Item("FieldType") = "int", "Int32", myReader.Item("FieldType"))
-                    reg.IsNullable = myReader.Item("IsNul")
-                    reg.CaracterMaximo = If(myReader.Item("Length") = "-1", "4000", myReader.Item("Length"))
-                    reg.Precision = myReader.Item("Precision")
-                    reg.Scale = myReader.Item("Scale")
-                    reg.IsIdentity = myReader.Item("is_identity")
-                    reg.IsKey = IsKeyField(conexion, tabla, myReader.Item("FieldName"), myReader.Item("is_identity"))
-                    reg.SQLType = myReader.Item("FieldType")
+                    reg.nombre = myReader.Item("FieldName").ToString
+                    reg.tipo = If(myReader.Item("FieldType").ToString = "int", "Int32", myReader.Item("FieldType").ToString)
+                    reg.IsNullable = Convert.ToBoolean(myReader.Item("IsNul"))
+                    reg.CaracterMaximo = If(Convert.ToInt32(myReader.Item("Length")) < 0, 4000, Convert.ToInt32(myReader.Item("Length")))
+                    reg.Precision = Convert.ToInt32(myReader.Item("Precision"))
+                    reg.Scale = Convert.ToInt32(myReader.Item("Scale"))
+                    reg.IsIdentity = Convert.ToBoolean(myReader.Item("is_identity"))
+                    reg.IsKey = IsKeyField(conexion, tabla, myReader.Item("FieldName").ToString, Convert.ToInt32(myReader.Item("is_identity")))
+                    reg.SQLType = myReader.Item("FieldType").ToString
                     reg.MostrarEnGrilla = True ''Added by Jaymin - 2010.12.26
                     reg.Ver = True
                     reg.Add = True
@@ -404,8 +404,8 @@ Public Class DataBase
 
                     arrEstructura.Add(reg)
 
-                    If IsKeyField(conexion, tabla, myReader.Item("FieldName"), myReader.Item("is_identity")) = True Then
-                        KeyCount = KeyCount + 1
+                    If IsKeyField(conexion, tabla, myReader.Item("FieldName").ToString, Convert.ToInt32(myReader.Item("is_identity"))) = True Then
+                        KeyCount += 1
                     End If
 
                     indice = indice + 1
@@ -461,10 +461,11 @@ Public Class DataBase
             myCommand = New SqlCommand(mySelectQuery, myConnection)
             myConnection.Open()
             myReader = myCommand.ExecuteReader()
+            Dim row As DataGridViewRow
+
             While myReader.Read()
-                Dim row As DataGridViewRow
                 For Each row In dgvCampos.Rows
-                    If row.Cells("Nombre").Value.ToString = myReader.Item("FK_Column") Then
+                    If row.Cells("Nombre").Value.ToString = myReader.Item("FK_Column").ToString Then
                         row.Cells(8).Value = myReader.Item("PK_Table")
                         row.Cells(9).Value = myReader.Item("PK_Column")
                         row.Cells(10).Value = myReader.Item("PK_Column")
@@ -535,7 +536,7 @@ Public Class DataBase
             Dim reader As SqlDataReader = selectCommand.ExecuteReader()
 
             Do While reader.Read
-                If reader("cuenta").ToString > 0 Then
+                If Convert.ToInt32(reader("cuenta")) > 0 Then
                     Return True
                 Else
                     Return False
@@ -566,7 +567,7 @@ Public Class DataBase
             Dim reader As SqlDataReader = selectCommand.ExecuteReader()
 
             Do While reader.Read
-                If reader("cuenta").ToString > 0 Then
+                If Convert.ToInt32(reader("cuenta")) > 0 Then
                     Return True
                 Else
                     Return False

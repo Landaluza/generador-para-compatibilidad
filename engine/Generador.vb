@@ -173,12 +173,14 @@ Public Class Generador
         End With
 
         Dim i As Integer = 0
-        comboboxColumn.Items.Add("")
-        'comboboxColumn2.Items.Add("")
-        'comboboxColumn3.Items.Add("")
-
+        'comboboxColumn.DataSource = cboTabla.DataSource
+        'comboboxColumn.Items.Add("")
+        ''comboboxColumn2.Items.Add("")
+        ''comboboxColumn3.Items.Add("")
+        Dim row As DataRowView
         While i < cboTabla.Items.Count
-            comboboxColumn.Items.Add(cboTabla.Items.Item(i).ToString)
+            row = CType(cboTabla.Items.Item(i), DataRowView)
+            comboboxColumn.Items.Add(row.Item(0))
             i = i + 1
         End While
         dgvCampos.Columns.Insert(8, comboboxColumn)
