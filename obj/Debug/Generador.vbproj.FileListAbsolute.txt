@@ -1,0 +1,15 @@
+C:\Users\Migue\Desktop\git\generdor compatibilidad\bin\Generador.exe.config
+C:\Users\Migue\Desktop\git\generdor compatibilidad\bin\Generador.exe.manifest
+C:\Users\Migue\Desktop\git\generdor compatibilidad\bin\Generador.application
+C:\Users\Migue\Desktop\git\generdor compatibilidad\bin\Generador.exe
+C:\Users\Migue\Desktop\git\generdor compatibilidad\bin\Generador.pdb
+C:\Users\Migue\Desktop\git\generdor compatibilidad\obj\Debug\Generador.frmConexion.resources
+C:\Users\Migue\Desktop\git\generdor compatibilidad\obj\Debug\Generador.GUI.resources
+C:\Users\Migue\Desktop\git\generdor compatibilidad\obj\Debug\Generador.login.resources
+C:\Users\Migue\Desktop\git\generdor compatibilidad\obj\Debug\Generador.SplashScreen1.resources
+C:\Users\Migue\Desktop\git\generdor compatibilidad\obj\Debug\Generador.Resources.resources
+C:\Users\Migue\Desktop\git\generdor compatibilidad\obj\Debug\Generador.vbproj.GenerateResource.Cache
+C:\Users\Migue\Desktop\git\generdor compatibilidad\obj\Debug\Generador.exe.manifest
+C:\Users\Migue\Desktop\git\generdor compatibilidad\obj\Debug\Generador.application
+C:\Users\Migue\Desktop\git\generdor compatibilidad\obj\Debug\Generador.exe
+C:\Users\Migue\Desktop\git\generdor compatibilidad\obj\Debug\Generador.pdb
