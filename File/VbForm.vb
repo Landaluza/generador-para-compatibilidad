@@ -353,9 +353,14 @@ Public Class VbForm
             PrintLine(libre, "")
 
             '--------------------- GUARDAR -----------------------
+            'Dim Tabfor As String = ""
+            'PrintLine(libre, TAB(4), "Public Overrides Sub Guardar(Optional ByRef trans As SqlClient.SqlTransaction = nothing) Implements BasesParaCompatibilidad.Savable.Guardar")
+            'PrintLine(libre, TAB(8), "MyBase.Guardar(trans)")
+            'PrintLine(libre, TAB(4), "End Sub")
+            'PrintLine(libre, "")
             Dim Tabfor As String = ""
-            PrintLine(libre, TAB(4), "Public Overrides Sub Guardar(Optional ByRef trans As SqlClient.SqlTransaction = nothing) Implements BasesParaCompatibilidad.Savable.Guardar")
-            PrintLine(libre, TAB(8), "MyBase.Guardar(trans)")
+            PrintLine(libre, TAB(4), "Public Overrides Sub Guardar(Optional ByRef dtb As BasesParaCompatibilidad.DataBase = nothing) Implements BasesParaCompatibilidad.Savable.Guardar")
+            PrintLine(libre, TAB(8), "MyBase.Guardar(dtb)")
             PrintLine(libre, TAB(4), "End Sub")
             PrintLine(libre, "")
 

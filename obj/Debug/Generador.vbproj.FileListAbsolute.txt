@@ -16,3 +16,15 @@ C:\Users\Migue\Desktop\git\generdor compatibilidad\obj\Debug\Generador.pdb
 C:\Users\Administrador\Desktop\git\Generador compatibilidad\bin\Generador.exe.config
 C:\Users\Administrador\Desktop\git\Generador compatibilidad\obj\Debug\Generador.exe
 C:\Users\Administrador\Desktop\git\Generador compatibilidad\obj\Debug\Generador.pdb
+C:\Users\Administrador\Desktop\git\Generador compatibilidad\bin\Generador.exe.manifest
+C:\Users\Administrador\Desktop\git\Generador compatibilidad\bin\Generador.application
+C:\Users\Administrador\Desktop\git\Generador compatibilidad\bin\Generador.exe
+C:\Users\Administrador\Desktop\git\Generador compatibilidad\bin\Generador.pdb
+C:\Users\Administrador\Desktop\git\Generador compatibilidad\obj\Debug\Generador.frmConexion.resources
+C:\Users\Administrador\Desktop\git\Generador compatibilidad\obj\Debug\Generador.GUI.resources
+C:\Users\Administrador\Desktop\git\Generador compatibilidad\obj\Debug\Generador.login.resources
+C:\Users\Administrador\Desktop\git\Generador compatibilidad\obj\Debug\Generador.SplashScreen1.resources
+C:\Users\Administrador\Desktop\git\Generador compatibilidad\obj\Debug\Generador.Resources.resources
+C:\Users\Administrador\Desktop\git\Generador compatibilidad\obj\Debug\Generador.vbproj.GenerateResource.Cache
+C:\Users\Administrador\Desktop\git\Generador compatibilidad\obj\Debug\Generador.exe.manifest
+C:\Users\Administrador\Desktop\git\Generador compatibilidad\obj\Debug\Generador.application
